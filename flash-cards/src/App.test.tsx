@@ -7,7 +7,9 @@ import { WrappedApp, App } from './App';
 describe('App', () => {
   it('Renders hello world', () => {
     // ARRANGE
-    render(<WrappedApp />);
+    const {debug} = render(<WrappedApp />);
+
+    debug() // it is like console.log() for testing
     // ACT
     // EXPECT
     expect(
@@ -16,6 +18,9 @@ describe('App', () => {
       })
     ).toHaveTextContent('Hello World');
   });
+
+  // it()  // creating a new test
+
   it('Renders not found if invalid path', () => {
     render(
       <MemoryRouter initialEntries={['/this-route-does-not-exist']}>
